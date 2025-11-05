@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Решение алгоритмической задачи - Шедевропрофильник</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="icon.jpg" />
+</head>
+<body>
+    <header class="header">
+        <div class="overlay">
+            <h1 class="header-title">Шедевропрофильник</h1>
+        </div>
+    </header>
+
+    <header class="second-header"> 
+        <div class="second-overlay">
+            <h1 class="second-header-title">Мы-замотивируем, ты-будешь шедевропрофильником!</h1>
+        </div>
+    </header>
+
+    <header class="navigation"> 
+        <nav> 
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="courses.html">Курсы</a></li>
+                <li><a href="homework.html"><u>Домашки</u></a></li>
+                <li><a href="passport.html">Паспорт</a></li>
+                <li><a href="form.html">Записаться</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-frame">
+        <h1>Решение алгоритмической задачи</h1>
+        
+        <h3>Условие задачи:</h3>
+        <p>Имеются две ёмкости: кубическая с ребром A, цилиндрическая с высотой H и радиусом основания R.</p>
+        <p>Определить, поместится ли жидкость объёма M в первую ёмкость, во вторую, в обе.</p>
+
+        <h3>Введите данные:</h3>
+        <table>
+            <tr>
+                <td>Ребро куба A:</td>
+                <td><input type="number" id="A" value="10"></td>
+                <td>см</td>
+            </tr>
+            <tr>
+                <td>Высота цилиндра H:</td>
+                <td><input type="number" id="H" value="15"></td>
+                <td>см</td>
+            </tr>
+            <tr>
+                <td>Радиус цилиндра R:</td>
+                <td><input type="number" id="R" value="5"></td>
+                <td>см</td>
+            </tr>
+            <tr>
+                <td>Объём жидкости M:</td>
+                <td><input type="number" id="M" value="800"></td>
+                <td>см³</td>
+            </tr>
+        </table>
+
+        <br>
+        <button onclick="calculate()">Решить задачу</button>
+        <button onclick="clearForm()">Очистить</button>
+
+        <div id="result" style="margin-top: 20px; padding: 15px; background-color: #2a5298; border-radius: 5px;"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Получаем значения из формы
+            const A = parseFloat(document.getElementById('A').value);
+            const H = parseFloat(document.getElementById('H').value);
+            const R = parseFloat(document.getElementById('R').value);
+            const M = parseFloat(document.getElementById('M').value);
+
+            // Проверка корректности данных
+            if (isNaN(A) || isNaN(H) || isNaN(R) || isNaN(M)) {
+                document.getElementById('result').innerHTML = "<strong>Ошибка:</strong> Все поля должны содержать числа!";
+                return;
+            }
+
+            if (A <= 0 || H <= 0 || R <= 0 || M <= 0) {
+                document.getElementById('result').innerHTML = "<strong>Ошибка:</strong> Все значения должны быть положительными!";
+                return;
+            }
+
+            // Вычисление объёмов
+            const V_cube = A * A * A;
+            const V_cylinder = Math.PI * R * R * H;
+
+            // Проверка условий
+            const inFirst = M <= V_cube;
+            const inSecond = M <= V_cylinder;
+            const inBoth = inFirst && inSecond;
+
+            // Формирование результата
+            let result = "<strong>Результаты решения:</strong><br><br>";
+            result += `<strong>Вычисленные объёмы:</strong><br>`;
+            result += `Объём кубической ёмкости: V = A³ = ${A}³ = <strong>${V_cube.toFixed(2)} см³</strong><br>`;
+            result += `Объём цилиндрической ёмкости: V = π × R² × H = 3.14159 × ${R}² × ${H} = <strong>${V_cylinder.toFixed(2)} см³</strong><br><br>`;
+            
+            result += `<strong>Ответ на задачу:</strong><br>`;
+            result += `1. Поместится в первую ёмкость (куб): <strong>${inFirst ? 'ДА' : 'НЕТ'}</strong><br>`;
+            result += `2. Поместится во вторую ёмкость (цилиндр): <strong>${inSecond ? 'ДА' : 'НЕТ'}</strong><br>`;
+            result += `3. Поместится в обе ёмкости: <strong>${inBoth ? 'ДА' : 'НЕТ'}</strong>`;
+
+            document.getElementById('result').innerHTML = result;
+        }
+
+        function clearForm() {
+            document.getElementById('A').value = '';
+            document.getElementById('H').value = '';
+            document.getElementById('R').value = '';
+            document.getElementById('M').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+
+    <div class="up"> 
+        <h5 class="up-text"><a href="#">Наверх</a></h5>
+    </div>
+
+    <footer class="footer">
+        <h4 class="footer-author">© 2025 Шедевропрофильник</h4>
+    </footer>
+    <footer class="minifooter">
+        <h4 class="footer-cooperation">По вопросам сотрудничества: 
+            <a href="mailto:info@shedevro.ru">info@shedevro.ru</a> | 
+            Телефон: <a href="tel:+79998887766">+7 (999) 888-77-66</a>
+        </h4>
+    </footer>
+</body>
+</html>

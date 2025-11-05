@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Записаться - Шедевропрофильник</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="icon.jpg" />
+</head>
+<body>
+    <header class="header">
+        <div class="overlay">
+            <h1 class="header-title">Шедевропрофильник</h1>
+        </div>
+    </header>
+
+    <header class="second-header"> 
+        <div class="second-overlay">
+            <h1 class="second-header-title">Мы-замотивируем, ты-будешь шедевропрофильником!</h1>
+        </div>
+    </header>
+
+    <header class="navigation"> 
+        <nav> 
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="courses.html">Курсы</a></li>
+                <li><a href="homework.html">Домашки</a></li>
+                <li><a href="passport.html">Паспорт</a></li>
+                <li><a href="form.html"><u>Записаться</u></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h3 class="page-frame" align="center">Формы для записи на курсы</h3>
+
+    <table align="center" cellspacing="0" cellpadding="10" border="2" width="700px">
+    <tbody>
+    <tr>
+        <td colspan="3" height="50px">Информация о курсах математики</td>
+    </tr>
+    <tr>
+        <td height="200px" width="200px">
+            <b>Наши курсы:</b><br><br>
+            • ЕГЭ профиль<br>
+            • ЕГЭ база<br>
+            • ОГЭ<br>
+            • Геометрия
+        </td>
+        
+        <td width="300px">
+            <a href="https://via.placeholder.com/600x400/3498db/FFFFFF?text=Математика+Курсы" target="_blank">
+            <img src="https://via.placeholder.com/100x80/3498db/FFFFFF?text=МАТ" width="100"> </a>
+            <br>
+            <small>Нажмите для увеличения</small>
+        </td>
+        
+        <td width="200px">
+            <b>Контакты:</b><br><br>
+            📞 +7 (999) 888-77-66<br>
+            ✉️ info@shedevro.ru<br>
+            🕒 9:00 - 21:00
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" height="100px">
+            <b>Запишитесь на первый бесплатный урок!</b>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+
+    <h2 class="course-title">Отправьте нам свои личные данные</h2>
+
+    <form class="form" action='https://www.google.ru/?hl=ru' method="get" target="_blank">
+        <label for="lastname">Фамилия</label>
+        <input type="text" name="surname" required>
+        
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="groupnumber">Номер группы/класса</label>
+        <input type="number" id="groupnumber" name="group" min="1" max="12">
+        
+        <label for="phone">Мобильный телефон</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email">
+        
+        <label for="date">Дата отправки</label>
+        <input type="date" id="date" name="date">
+        
+        <button type="submit">Отправить данные</button>
+    </form>
+
+    <h2 class="course-title">Анкета для записи на курс</h2>
+    
+    <form class="form" action='https://www.google.ru/?hl=ru' method="get" target="_blank">
+        <p>Выберите курс:
+            <input type="radio" name="course" value="ege_profile" required> ЕГЭ Профиль
+            <input type="radio" name="course" value="ege_base"> ЕГЭ База
+            <input type="radio" name="course" value="oge"> ОГЭ
+            <input type="radio" name="course" value="geometry"> Геометрия
+        </p>
+        
+        <p>Формат обучения:
+            <input type="checkbox" name="format" value="group" checked> Групповые занятия
+            <input type="checkbox" name="format" value="individual"> Индивидуальные
+            <input type="checkbox" name="format" value="online"> Онлайн
+        </p>
+        
+        <p>Уровень подготовки:
+            <select name="level">
+                <option value="beginner">Начальный</option>
+                <option value="medium">Средний</option>
+                <option value="high">Продвинутый</option>
+            </select>
+        </p>
+        
+        <p>Цель обучения:
+            <select name="goal">
+                <option value="ege">Сдать ЕГЭ</option>
+                <option value="oge">Сдать ОГЭ</option>
+                <option value="olympiad">Подготовка к олимпиаде</option>
+                <option value="knowledge">Повысить знания</option>
+            </select>
+        </p>
+        
+        <p>Удобное время занятий:
+            <br>
+            <textarea name="time_preferences" rows="3" cols="50">Предпочтительное время для занятий...</textarea>
+        </p>
+
+        <p>Дата начала занятий: 
+            <input type="date" name="start_date" value='2024-02-01'>
+        </p>
+        
+        <p>Пароль для личного кабинета: 
+            <input type="password" name="password" value="123456" size="15">
+        </p>
+        
+        <p>Бюджет (руб/мес): 
+            <input type="number" name="budget" value="5000">
+        </p>
+
+        <input type="hidden" name="school" value="shedevroprofilnik">
+        <input type="hidden" name="form_type" value="course_registration">
+
+        <p>
+            <input type="reset" name="reset" value="Очистить форму">
+            <input type="submit" name="submit" value="Отправить заявку">
+        </p>
+    </form>
+
+    <div class="up"> 
+        <h5 class="up-text"><a href="#">Наверх</a></h5>
+    </div>
+
+    <footer class="footer">
+        <h4 class="footer-author">© 2025 Шедевропрофильник</h4>
+    </footer>
+    <footer class="minifooter">
+        <h4 class="footer-cooperation">По вопросам сотрудничества: 
+            <a href="mailto:info@shedevro.ru">info@shedevro.ru</a> | 
+            Телефон: <a href="tel:+79998887766">+7 (999) 888-77-66</a>
+        </h4>
+    </footer>
+</body>
+</html>

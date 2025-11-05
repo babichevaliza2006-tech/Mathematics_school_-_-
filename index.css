@@ -1,0 +1,325 @@
+*{
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+body {
+    min-width: 850px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #e6f2ff;
+}
+
+.header {
+    height: 50vh;
+    text-align: center;
+    background-color: #1e3c72;
+    background-image: url(https://via.placeholder.com/1200x600/1e3c72/FFFFFF?text=Шедевропрофильник+Математика);
+    background-position: center;
+    background-size: cover;
+}
+
+.second-header {
+    height: 100px;
+    text-align: center;
+    background-color: #2a5298;
+    background-position: center;
+}
+
+.header-title {
+    margin: auto;
+    color: white;
+    font-weight: 800;
+    font-size: 74px;
+    text-transform: uppercase;
+}
+
+.overlay {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 60, 114, 0.7);
+}
+
+.second-overlay {
+    border-color: #1e3c72;
+}
+
+.second-header-title {
+    margin-top: 20px;
+    font-weight: 800;
+    font-size: 26px;
+    text-transform: uppercase;
+    margin-bottom: 49px;
+    padding: 20px;
+    color: white;
+}
+
+.navigation {
+    width: 100%;
+    background-color: #1e3c72;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.page-navigation {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #2a5298;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation ul,
+.page-navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul li,
+.page-navigation ul li {
+    display: inline;
+}
+
+.navigation ul li a,
+.page-navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation ul li a:hover,
+.page-navigation ul li a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.content {
+    width: 770px;
+    margin: 100px auto 50px;
+    font-size: 0;
+}
+
+.card {
+    display: inline-block;
+    height: 500px;
+    width: 360px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+    border: 1px solid #3498db;
+    padding: 25px 25px 25px;
+    box-shadow: 4px 4px 0 #3498db;
+    vertical-align: top;
+    background-color: white;
+}
+
+.no-right-margin {
+    margin-right: 0;
+}
+
+.card-title {
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1e3c72;
+}
+
+.card-text {
+    font-size: 18px;
+    color: black;
+}
+
+.card-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #3498db;
+    display: flex;
+}
+
+.page-frame {
+    background-color: #e6f2ff;
+    color: #1e3c72;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.page-text {
+    padding: auto;
+    margin: auto;
+    width: 80%;
+    color: black;
+    height: 150px;
+    background-color: #e6f2ff;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mem {
+    padding: auto;
+    margin: 20px auto 30px;
+    height: 400px;
+    display: flex;
+}
+
+.up {
+    width: 10%;
+}
+
+.up-text a {
+    margin: auto;
+    color: #1e3c72;
+    background-color: #e6f2ff;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: #1e3c72;
+}
+
+.footer-author {
+    margin: auto;
+    padding: 0;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.footer-cooperation {
+    margin: auto;
+    padding: 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.minifooter {
+    display: flex;
+    height: 50px;
+    background-color: #2a5298;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.course-content {
+    width: 100%;
+    height: 300px;
+    color: #000000;
+    margin: 200px auto 20px;
+    padding: auto;
+}
+
+.course-title {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1e3c72;
+}
+
+.course-text {
+    font-family: 'Open Sans', Arial, sans-serif;
+    padding-left: 0%;
+    margin: auto;
+    width: 80%;
+    color: black;
+    height: 100px;
+    background-color: #e6f2ff;
+    font-weight: 700;
+    text-align: left;
+    line-height: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #e6f2ff;
+}
+
+.form label {
+    color: #1e3c72;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.form input,
+.form select,
+.form textarea {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #3498db;
+    background-color: white;
+}
+
+.form button {
+    background-color: #1e3c72;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #e6f2ff;
+}
+
+table, th, td {
+    border: 2px solid #3498db;
+    padding: 15px;
+    text-align: center;
+    color: black;
+}
+
+th {
+    background-color: #2a5298;
+    color: white;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e6f2ff;
+    border: 1px solid #3498db;
+    font-weight: bold;
+    color: black;
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}

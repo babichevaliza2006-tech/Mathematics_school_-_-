@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Паспорт - Шедевропрофильник</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="icon.jpg" />
+</head>
+<body>
+    <header class="header">
+        <div class="overlay">
+            <h1 class="header-title">Шедевропрофильник</h1>
+        </div>
+    </header>
+
+    <header class="second-header"> 
+        <div class="second-overlay">
+            <h1 class="second-header-title">Мы-замотивируем, ты-будешь шедевропрофильником!</h1>
+        </div>
+    </header>
+
+    <header class="navigation"> 
+        <nav> 
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="courses.html">Курсы</a></li>
+                <li><a href="homework.html">Домашки</a></li>
+                <li><a href="passport.html"><u>Паспорт</u></a></li>
+                <li><a href="form.html">Записаться</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="page-navigation">
+        <nav>
+            <ul>
+                <li><a href='#dom'>DOM_JS. Считываем информацию из DOM</a></li>
+                <li><a href='#click'>Изменяем кириллицу на латиницу по клику</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-frame">
+        <h3 id="dom" class="course-title">DOM_JS. Считываем информацию из DOM</h3>
+        <p>Личные данные ученика:</p>
+        <div id="studentData">
+            <p>Фамилия: <span>Иванов</span></p>
+            <p>Имя: <span>Иван</span></p>
+            <p>Год рождения: <span>2008</span></p>
+            <p>Класс: <span>11Б</span></p>
+            <p>Любимый предмет: <span>Математика</span></p>
+        </div>
+        
+        <p><strong>Пример получения данных через DOM:</strong></p>
+        <p>document.getElementsByTagName('span')[0].innerText - вернет "Иванов"</p>
+        <p>document.getElementsByTagName('span')[2].innerText - вернет "2008"</p>
+    </div>
+<div style="text-align: center; margin: 20px 0;">
+    <h4>Скриншот работы с DOM в Инструментах разработчика:</h4>
+    <img src="dom-screenshot.png" alt="Скриншот DOM" 
+         style="max-width: 100%; border: 1px solid #3498db; border-radius: 5px;">
+    <p><em>Рис. 1: Пример получения данных через консоль разработчика</em></p>
+</div>
+    <div class="page-frame">
+        <h3 id="click" class="course-title">Изменяем кириллицу на латиницу по клику</h3>
+        
+        <div id="mathPassport">
+            <h4>Математический паспорт ученика</h4>
+            <p>Фамилия: <span class="lastname">Иванов</span></p>
+            <p>Имя: <span class="firstname">Пётр</span></p>
+            <p>Любимый математик: <span class="mathematician">Эйлер</span></p>
+            <p>Любимая теорема: <span class="theorem">Теорема Пифагора</span></p>
+            <p>Уровень математики: <span class="level">Продвинутый</span></p>
+        </div>
+
+        <button id="transliterateButton">Перевести на латиницу</button>
+        <button id="resetButton">Вернуть кириллицу</button>
+    </div>
+
+    <script>
+        // Функция транслитерации
+        function transliterate(text) {
+            const translitMap = {
+                'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'YO',
+                'Ж': 'ZH', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M',
+                'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
+                'Ф': 'F', 'Х': 'KH', 'Ц': 'TS', 'Ч': 'CH', 'Ш': 'SH', 'Щ': 'SHCH', 'Ъ': '',
+                'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'YU', 'Я': 'YA',
+                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
+                'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+                'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+                'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ъ': '',
+                'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+            };
+            return text.split('').map(char => translitMap[char] || char).join('');
+        }
+
+        // Сохраняем оригинальные значения
+        const originalValues = {};
+
+        function saveOriginalValues() {
+            const elements = document.querySelectorAll('.lastname, .firstname, .mathematician, .theorem, .level');
+            elements.forEach((element, index) => {
+                originalValues[index] = element.innerText;
+            });
+        }
+
+        function convertToLatin() {
+            const elements = document.querySelectorAll('.lastname, .firstname, .mathematician, .theorem, .level');
+            elements.forEach(element => {
+                element.innerText = transliterate(element.innerText);
+            });
+        }
+
+        function resetToCyrillic() {
+            const elements = document.querySelectorAll('.lastname, .firstname, .mathematician, .theorem, .level');
+            elements.forEach((element, index) => {
+                element.innerText = originalValues[index];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            saveOriginalValues();
+            
+            const transliterateButton = document.getElementById('transliterateButton');
+            const resetButton = document.getElementById('resetButton');
+            
+            transliterateButton.addEventListener('click', convertToLatin);
+            resetButton.addEventListener('click', resetToCyrillic);
+        });
+    </script>
+
+    <div class="up"> 
+        <h5 class="up-text"><a href="#">Наверх</a></h5>
+    </div>
+
+    <footer class="footer">
+        <h4 class="footer-author">© 2025 Шедевропрофильник</h4>
+    </footer>
+    <footer class="minifooter">
+        <h4 class="footer-cooperation">По вопросам сотрудничества: 
+            <a href="mailto:info@shedevro.ru">info@shedevro.ru</a> | 
+            Телефон: <a href="tel:+79998887766">+7 (999) 888-77-66</a>
+        </h4>
+    </footer>
+</body>
+</html>
